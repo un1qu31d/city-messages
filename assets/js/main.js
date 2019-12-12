@@ -228,12 +228,12 @@ class Tabs {
   tabs.element.querySelector('.tabs__label.status--active').click();
   tabs.boxes.forEach(box => {
     box.callBack = (message) => {
-      googleMap.getMarkers().forEach(marker => {
-        marker.marker.setAnimation(null);
-      });
-      googleMap.getMarkersByMessage(message).forEach(marker => {
-        marker.marker.setAnimation(google.maps.Animation.BOUNCE);
-      });
+      // googleMap.getMarkers().forEach(marker => {
+      //   marker.marker.setAnimation(null);
+      // });
+      // googleMap.getMarkersByMessage(message).forEach(marker => {
+      //   marker.marker.setAnimation(google.maps.Animation.BOUNCE);
+      // });
     }
   });
 })();
