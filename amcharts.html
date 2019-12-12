@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>City Messages</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .map {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="map" id="chartdiv"></div>
+    <script src="//www.amcharts.com/lib/4/core.js"></script>
+    <script src="//www.amcharts.com/lib/4/maps.js"></script>
+    <script src="//www.amcharts.com/lib/4/geodata/worldHigh.js"></script>
+    <script src="//www.amcharts.com/lib/4/geodata/egyptHigh.js"></script>
+    <script>
+      var map = am4core.create("chartdiv", am4maps.MapChart);
+      map.panBehavior = "rotateLong";
+      map.geodata = am4geodata_worldHigh;
+      map.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#aadaff");
+      map.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 1;
+      map.projection = new am4maps.projections.Orthographic();
+      var worldSeries = map.series.push(new am4maps.MapPolygonSeries());
+      // var polygonSeries = new am4maps.MapPolygonSeries();
+      worldSeries.useGeodata = true;
+      map.series.push(worldSeries);
+      var polygonTemplate = worldSeries.mapPolygons.template;
+      // polygonTemplate.tooltipText = "{name}";
+      polygonTemplate.fill = am4core.color("#74B266");
+
+      // Create hover state and set alternative fill color
+      var hs = polygonTemplate.states.create("hover");
+      hs.properties.fill = am4core.color("#367B25");
+      worldSeries.data = [{
+        "id": "US",
+        "name": "United States",
+        "value": 100,
+        "fill": am4core.color("#F05C5C")
+      }, {
+        "id": "FR",
+        "name": "France",
+        "value": 50,
+        "fill": am4core.color("#5C5CFF")
+      }];
+      polygonTemplate.propertyFields.fill = "fill";
+
+      var usaSeries = map.series.push(new am4maps.MapPolygonSeries());
+      usaSeries.geodata = am4geodata_egyptHigh
+      var polygonTemplate = usaSeries.mapPolygons.template;
+      polygonTemplate.fill = am4core.color("#74B266");
+      var hs = polygonTemplate.states.create("hover");
+      hs.properties.fill = am4core.color("#367B25");
+
+    </script>
+  </body>
+</html>

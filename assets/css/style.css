@@ -1,0 +1,245 @@
+/* @media (min-width: 1024px) {
+
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+
+}
+@media (max-width: 767px) {
+
+} */
+body {
+  margin: 0;
+  font-size: 12pt;
+}
+[lang="en"] {
+  font-family: 'Roboto', sans-serif;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+/* APP */
+.component--app {
+}
+/* LOADER */
+@keyframes loader__globe-rotation {
+  from {
+    transform: translateX(0);
+  }
+  
+  from {
+    transform: translateX(-50%);
+  }
+}
+.component--loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  background-color: #13386b;
+  transition: opacity 600ms ease-in-out, z-index 0ms linear 600ms;
+}
+.component--loader:not(.status--active) {
+  opacity: 0;
+  z-index: -1;
+}
+  .loader__globe {
+    border: 2px solid #8bc34a;
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+    background-color: #13386b;
+  }
+    .loader__globe svg {
+      animation: loader__globe-rotation 5s linear 0s infinite;
+    }
+      .loader__globe path {
+        stroke: #8BC34A;
+      }
+/* PAGES */
+.component--pages {
+}
+  .pages__page {
+
+  }
+/* LAYOUT */
+.component--layout {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  grid-gap: 32px; 
+}
+  .layout__header {
+  }
+  .layout__main {
+  }
+  .layout__footer {
+
+  }
+/* SECTION */
+.component--section {
+  height: 100%;
+}
+.component--section.theme--header {
+  box-shadow: 0px 0px 4px 1px rgba(17, 17, 17, .06);
+  color: #13386b;
+}
+.component--section.theme--footer {
+  background-color: #13386b;
+  color: #fff;
+}
+  .section__container {
+    margin: 0 auto;
+    width: 92%;
+    max-width: 960px;
+    height: 100%;
+  }
+/* HEADER */
+.component--header {
+  padding: 8px 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2em;
+}
+/* FOOTER */
+.component--footer {
+  padding: 8px 0;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 1em;
+  display: grid;
+  grid-gap: 8px;
+}
+  .footer__copyright {
+    
+  }
+  .footer__social-links {
+
+  }
+    .footer__social-links ul {
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 8px;
+    }
+      .footer__social-links li {
+
+      }
+@media (min-width: 768px) {
+.component--footer {
+  grid-auto-flow: column;
+  justify-content: space-between;
+}
+}
+@media (max-width: 767px) {
+.component--footer {
+  justify-content: center;
+}
+}
+/* CITY MESSAGES */
+.component--city-messages {
+  display: grid;
+  grid-gap: 16px;
+  min-height: 100%;
+}
+  .city-messages__control {
+  }
+  .city-messages__view {
+    position: relative;
+    min-height: 240px;
+  }
+    .city-messages__view.status--loading::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      background-image: url('../img/view-loader.gif');
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+@media (min-width: 1024px) {
+.component--city-messages {
+  grid-template-columns: 1fr 3fr;
+}
+}
+@media (max-width: 1023px) {
+.component--city-messages {
+  grid-template-rows: 1fr 2fr;
+}
+}
+/* TABS */
+.component--tabs {
+  height: 100%;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  grid-gap: 16px;
+}
+  .tabs__labels {
+    margin: -4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+    .tabs__label {
+      cursor: pointer;
+      margin: 4px;
+      border: 1px solid gray;
+      border-radius: 8px;
+      padding: 8px;
+      text-transform: capitalize;
+    }
+    .tabs__label.status--active, .tabs__label:hover {
+      background-color: #13386b;
+      color: #fff;
+    }
+  .tabs__content {
+    position: relative;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+  }
+  .tabs__boxes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+    .tabs__box {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      align-items: center;
+    }
+    .tabs__box:nth-child(even) {
+      background-color: #f7f7f7;
+    }
+    .tabs__box:not(.status--active) {
+      display: none;
+    }
+      .tabs__box__image {
+        padding: 6px;
+      }
+        .tabs__box__image img {
+        }
+      .tabs__box__content {
+        padding: 6px;
+      }
+/* MAP */
+.component--map {
+  width: 100%;
+  height: 100%;
+}
