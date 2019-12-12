@@ -57,11 +57,11 @@ class GoogleMap {
         icon: (() => {
           switch(marker.category) {
             case 'positive':
-              return '/files/images/like.png';
+              return './files/images/like.png';
             case 'negative':
-              return '/files/images/sad.png';
+              return './files/images/sad.png';
             default:
-              return '/files/images/comment.png';
+              return './files/images/comment.png';
           }
         })(),
         map: this.map
@@ -101,11 +101,11 @@ class Tabs {
         <img src="${(() => {
           switch(box.category.toLowerCase()) {
             case 'positive':
-              return '/files/images/like.png';
+              return './files/images/like.png';
             case 'negative':
-              return '/files/images/sad.png';
+              return './files/images/sad.png';
             default:
-              return '/files/images/comment.png';
+              return './files/images/comment.png';
           }
         })()}">
         </div>
